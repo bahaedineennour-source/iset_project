@@ -1,0 +1,32 @@
+@if (lesson(); as currentLesson) {
+  <a class="back" [routerLink]="['/subjects', currentLesson.subjectId]">← Retour à la matière</a>
+} @else {
+  <a class="back" routerLink="/">← Retour à l'accueil</a>
+}
+
+@if (loading()) {
+  <p class="status">Chargement du cours…</p>
+}
+
+@if (error()) {
+  <p class="status error">{{ error() }}</p>
+}
+
+@if (lesson(); as currentLesson) {
+  <article class="lesson">
+    <p class="meta">
+      {{ currentLesson.subjectName }} · Chapitre : {{ currentLesson.chapterTitle }}
+    </p>
+    <h1>Cours {{ currentLesson.lessonNumber }} : {{ currentLesson.title }}</h1>
+    <div class="content" [innerHTML]="currentLesson.content"></div>
+
+    @if (currentLesson.attachmentUrl) {
+      <p class="attachment">
+        Document associé :
+        <a [href]="currentLesson.attachmentUrl" target="_blank" rel="noopener">
+          Télécharger le PDF
+        </a>
+      </p>
+    }
+  </article>
+}

@@ -1,0 +1,28 @@
+<a class="back" routerLink="/">← Retour à l'accueil</a>
+
+@if (loading()) {
+  <p class="status">Chargement de la matière…</p>
+}
+
+@if (error()) {
+  <p class="status error">{{ error() }}</p>
+}
+
+@if (subject(); as currentSubject) {
+  <header class="intro">
+    <h1>{{ currentSubject.name }}</h1>
+    <p>{{ currentSubject.description }}</p>
+  </header>
+
+  <section>
+    <h2>Chapitres</h2>
+    <p class="help">Cliquez sur un chapitre pour afficher ses cours, puis ouvrez un cours pour le lire.</p>
+    <div class="chapters">
+      @for (chapter of chapters(); track chapter.id) {
+        <app-chapter [chapter]="chapter" />
+      } @empty {
+        <p>Aucun chapitre n'est encore associé à cette matière.</p>
+      }
+    </div>
+  </section>
+}

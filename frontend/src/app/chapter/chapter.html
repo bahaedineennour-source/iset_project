@@ -1,0 +1,32 @@
+<article class="chapter">
+  <button type="button" class="chapter-header" (click)="toggle()">
+    <span>Chapitre {{ chapter.chapterNumber }} : {{ chapter.title }}</span>
+    <span class="hint">{{ open ? 'Masquer' : 'Afficher les cours' }}</span>
+  </button>
+
+  @if (open) {
+    <div class="chapter-body">
+      @if (loading()) {
+        <p class="status">Chargement des cours…</p>
+      }
+
+      @if (error()) {
+        <p class="status error">{{ error() }}</p>
+      }
+
+      @if (!loading() && !error()) {
+        <ul>
+          @for (lesson of lessons(); track lesson.id) {
+            <li>
+              <a [routerLink]="['/lessons', lesson.id]">
+                Cours {{ lesson.lessonNumber }} : {{ lesson.title }}
+              </a>
+            </li>
+          } @empty {
+            <li>Aucun cours dans ce chapitre.</li>
+          }
+        </ul>
+      }
+    </div>
+  }
+</article>

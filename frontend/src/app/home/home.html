@@ -1,0 +1,32 @@
+<section class="hero">
+  <h1>University Courses</h1>
+  <p>
+    Bienvenue. Cette application vous permet de consulter les matières universitaires,
+    leurs chapitres et le contenu des cours, sans compte ni connexion.
+  </p>
+</section>
+
+@if (loading()) {
+  <p class="status">Chargement des matières…</p>
+}
+
+@if (error()) {
+  <p class="status error">{{ error() }}</p>
+}
+
+@if (!loading() && !error()) {
+  <section>
+    <h2>Matières</h2>
+    <div class="grid">
+      @for (subject of subjects(); track subject.id) {
+        <a class="card" [routerLink]="['/subjects', subject.id]">
+          <h3>{{ subject.name }}</h3>
+          <p>{{ subject.description }}</p>
+          <span class="link">Voir les chapitres</span>
+        </a>
+      } @empty {
+        <p>Aucune matière n'est disponible pour le moment.</p>
+      }
+    </div>
+  </section>
+}

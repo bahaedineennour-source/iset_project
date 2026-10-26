@@ -1,0 +1,75 @@
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #123a63;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lesson,
+.status {
+  background: #ffffff;
+  border: 1px solid #d5e2ef;
+  border-radius: 12px;
+  padding: 1.4rem 1.5rem;
+}
+
+.meta {
+  margin: 0 0 0.5rem;
+  color: #4a6278;
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  color: #123a63;
+  line-height: 1.3;
+}
+
+.content {
+  color: #24384c;
+  line-height: 1.65;
+}
+
+.content h2 {
+  margin: 1.2rem 0 0.5rem;
+  color: #123a63;
+  font-size: 1.15rem;
+}
+
+.content p,
+.content ul {
+  margin: 0 0 0.8rem;
+}
+
+.content pre {
+  background: #123a63;
+  color: #f4f8fc;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.92rem;
+}
+
+.attachment {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d5e2ef;
+}
+
+.attachment a {
+  color: #123a63;
+  font-weight: 700;
+}
+
+.status.error {
+  color: #8a1f1f;
+  border-color: #e7c1c1;
+  background: #fff6f6;
+}
+
+@media (max-width: 640px) {
+  .lesson {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,45 @@
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #123a63;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.intro,
+.status {
+  background: #ffffff;
+  border: 1px solid #d5e2ef;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.intro h1,
+h2 {
+  margin: 0 0 0.7rem;
+  color: #123a63;
+}
+
+.intro p,
+.help {
+  margin: 0;
+  color: #35536f;
+  line-height: 1.55;
+}
+
+.help {
+  margin-bottom: 1rem;
+}
+
+.chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.status.error {
+  color: #8a1f1f;
+  border-color: #e7c1c1;
+  background: #fff6f6;
+}
